@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import Banner from '../components/Banner'
 import { useState, useEffect } from "react"
 import ReviewCard from "../components/ReviewCard"
@@ -47,7 +47,7 @@ export default function SingleMovie() {
                 leadtext={movie[0].abstract}
             />
 
-            <section className="container">
+            <section className="container my-3">
                 {/* Verifica se ci sono recensioni */}
                 {
                     movie[0].reviews && movie[0].reviews.length > 0 ? (
@@ -58,8 +58,9 @@ export default function SingleMovie() {
                         <p>No reviews available.</p>
                     )
                 }
-            </section>
 
+                <Link to="/" className="btn btn-success btn-sm"> <i className="bi bi-arrow-left"></i> Back to Homepage</Link>
+            </section>
 
 
         </>
