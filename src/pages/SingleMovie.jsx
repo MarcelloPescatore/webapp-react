@@ -29,7 +29,7 @@ export default function SingleMovie() {
             })
             .catch((err) => {
                 console.log(err.message);
-                setMovie(movie)
+                setMovie([])
             })
     }, [])
 
