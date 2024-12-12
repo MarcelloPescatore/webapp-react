@@ -19,17 +19,11 @@ export default function SingleMovie() {
             })
             .then((data) => {
                 console.log(data);
-
-                if (data && typeof data === 'object') {
-                    setMovie([data]);
-                } else {
-                    console.error("Unexpected API response format");
-                    setMovie(null);
-                }
+                setMovie(data)
             })
             .catch((err) => {
                 console.log(err.message);
-                setMovie([])
+                setMovie(null)
             })
     }, [])
 
@@ -39,19 +33,17 @@ export default function SingleMovie() {
 
     return (
         <>
-
-
             <Banner
-                title={movie[0].title}
-                subtitle={movie[0].director}
-                leadtext={movie[0].abstract}
+                title={movie.title}
+                subtitle={movie.director}
+                leadtext={movie.abstract}
             />
 
             <section className="container my-3">
                 {/* Verifica se ci sono recensioni */}
                 {
-                    movie[0].reviews && movie[0].reviews.length > 0 ? (
-                        movie[0].reviews.map((review) => (
+                    movie.reviews && movie.reviews.length > 0 ? (
+                        movie.reviews.map((review) => (
                             <ReviewCard key={review.id} review={review} />
                         ))
                     ) : (
