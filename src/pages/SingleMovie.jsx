@@ -34,7 +34,7 @@ export default function SingleMovie() {
     }, [setIsLoading])
 
     if (!movie) {
-        return null;
+        return setIsLoading(true)
     }
 
     return (
