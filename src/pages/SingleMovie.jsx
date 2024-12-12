@@ -2,14 +2,17 @@ import { Link, useParams } from "react-router-dom"
 import Banner from '../components/Banner'
 import { useState, useEffect } from "react"
 import ReviewCard from "../components/ReviewCard"
+import { useLoading } from "../context/GlobalProvider";
+
 
 export default function SingleMovie() {
 
     const { id } = useParams()
-
+    const { setIsLoading } = useLoading()
     const [movie, setMovie] = useState(null)
 
     useEffect(() => {
+        setIsLoading(true);
         fetch(`http://localhost:3001/api/movies/${id}`)
             .then((response) => {
                 if (!response.ok) {
@@ -25,10 +28,13 @@ export default function SingleMovie() {
                 console.log(err.message);
                 setMovie(null)
             })
-    }, [])
+            .finally(() => {
+                setIsLoading(false);
+            })
+    }, [setIsLoading])
 
     if (!movie) {
-        return <p>Loading movie details...</p>;
+        return null;
     }
 
     return (

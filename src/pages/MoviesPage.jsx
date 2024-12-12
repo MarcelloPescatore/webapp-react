@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import Banner from "../components/Banner";
 import MovieCard from "../components/MovieCard"
+import { useLoading } from "../context/GlobalProvider";
 
 export default function MoviesPage() {
     const [movies, setMovies] = useState([])
+    const { setIsLoading } = useLoading()
 
     useEffect(() => {
+        setIsLoading(true);
+
         fetch('http://localhost:3001/api/movies')
             .then((response) => {
                 if (!response.ok) {
@@ -25,7 +29,10 @@ export default function MoviesPage() {
                 console.log(err.message);
                 return []
             })
-    }, [])
+            .finally(() => {
+                setIsLoading(false);
+            })
+    }, [setIsLoading])
 
 
     return (
