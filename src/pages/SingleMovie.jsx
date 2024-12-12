@@ -59,7 +59,7 @@ export default function SingleMovie() {
                     )
                 }
 
-                <Link to="/" className="btn btn-success btn-sm"> <i className="bi bi-arrow-left"></i> Back to Homepage</Link>
+                <Link to="/" className="btn btn-success btn-sm"> <i className="bi bi-arrow-left"></i> Back to Movies</Link>
             </section>
 
 
