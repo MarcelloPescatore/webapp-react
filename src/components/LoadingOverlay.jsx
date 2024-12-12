@@ -1,4 +1,3 @@
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useLoading } from "../context/GlobalProvider";
 
 export default function LoadingOverlay() {
