@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ReviewFormCard({ movie_id }) {
+export default function ReviewFormCard({ movie_id, setSuccess, success }) {
     const initialFormData = {
         name: "",
         vote: 0,
@@ -9,7 +9,6 @@ export default function ReviewFormCard({ movie_id }) {
 
     const [formData, setFormData] = useState(initialFormData)
     const [errorMessage, setErrorMessage] = useState(null)
-    const [success, setSuccess] = useState(null)
 
     function HandleFormToggle() {
         document.getElementById('form-card').classList.toggle('d-none')

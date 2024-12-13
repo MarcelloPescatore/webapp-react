@@ -11,6 +11,7 @@ export default function SingleMovie() {
     const { id } = useParams()
     const { setIsLoading } = useLoading()
     const [movie, setMovie] = useState(null)
+    const [success, setSuccess] = useState(null)
 
     useEffect(() => {
         setIsLoading(true);
@@ -32,7 +33,7 @@ export default function SingleMovie() {
             .finally(() => {
                 setIsLoading(false);
             })
-    }, [setIsLoading])
+    }, [setIsLoading, success])
 
     if (!movie) {
         return (
@@ -56,7 +57,7 @@ export default function SingleMovie() {
                 leadtext={movie.abstract}
             />
 
-            <ReviewFormCard movie_id={id} />
+            <ReviewFormCard movie_id={id} setSuccess={setSuccess} success={success} />
 
             <section className="container my-3">
                 {/* Verifica se ci sono recensioni */}
