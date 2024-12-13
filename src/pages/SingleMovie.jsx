@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom"
 import Banner from '../components/Banner'
 import { useState, useEffect } from "react"
 import ReviewCard from "../components/ReviewCard"
+import ReviewFormCard from "../components/ReviewFormCard"
 import { useLoading } from "../context/GlobalProvider";
 
 
@@ -54,6 +55,8 @@ export default function SingleMovie() {
                 subtitle={movie.director}
                 leadtext={movie.abstract}
             />
+
+            <ReviewFormCard movie_id={id} />
 
             <section className="container my-3">
                 {/* Verifica se ci sono recensioni */}
