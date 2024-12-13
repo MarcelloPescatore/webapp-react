@@ -1,22 +1,33 @@
 export default function ReviewCard({ review }) {
-    return (
-      <div className="review card mb-3">
-        <div className="card-body">
-          <p>{review.text}.</p>
-          <span>By: {review.name}</span>
-  
-          <div className="vote mt-3" >
-            <strong>Vote: {review.vote}/5</strong>
-            {/*   <span className="rating text-warning">
-              <i className="bi bi-star-fill"></i>
-              <i className="bi bi-star-fill"></i>
-              <i className="bi bi-star-fill"></i>
-              <i className="bi bi-star"></i>
-              <i className="bi bi-star"></i>
-            </span> */}
-          </div>
-  
-        </div>
-      </div>
-    )
+
+  const renderStars = (vote) => {
+    const stars = []
+
+    for (let i = 1; i <= 5; i++) {
+      if (i <= vote) {
+        stars.push(<i key={i} className="bi bi-star-fill text-warning me-1"></i>);
+      } else {
+        stars.push(<i key={i} className="bi bi-star text-warning me-1"></i>);
+      }
+    }
+
+    return stars
   }
+
+
+
+
+  return (
+    <div className="review card mb-3">
+      <div className="card-body">
+        <p>{review.text}.</p>
+        <span>By: {review.name}</span>
+
+        <div className="vote mt-3" >
+          <span>{renderStars(review.vote)}</span>
+        </div>
+
+      </div>
+    </div>
+  )
+}
