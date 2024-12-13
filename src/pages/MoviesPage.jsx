@@ -20,9 +20,10 @@ export default function MoviesPage() {
             .then((data) => {
                 if (Array.isArray(data.movies)) {
                     setMovies(data.movies);
+
                 } else {
                     console.error("Unexpected API response format");
-                    setMovies([]); 
+                    setMovies([]);
                 }
             })
             .catch((err) => {
@@ -48,11 +49,20 @@ export default function MoviesPage() {
                 <div className="container">
                     <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
                         {
-                            movies.map(movie => (
-                                <div className="col" key={movie.id}>
-                                    <MovieCard movie={movie} />
+                            movies && movies.length > 0 ? (
+                                movies.map(movie => (
+                                    <div className="col" key={movie.id}>
+                                        <MovieCard movie={movie} />
+                                    </div>
+                                ))
+                            ) : (
+                                <div className="d-flex">
+                                    <div className="spinner-border text-success me-3" role="status">
+                                        <span className="visually-hidden">Loading...</span>
+                                    </div>
+                                    <p>Loading ...</p>
                                 </div>
-                            ))
+                            )
                         }
                     </div>
                 </div>
