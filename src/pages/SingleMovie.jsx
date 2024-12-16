@@ -1,7 +1,6 @@
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import Banner from '../components/Banner'
 import { useState, useEffect } from "react"
-import ReviewCard from "../components/ReviewCard"
 import ReviewFormCard from "../components/ReviewFormCard"
 import { useLoading } from "../context/GlobalProvider";
 import ListReviews from "../components/ListReviews"
