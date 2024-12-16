@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import ReviewCard from "../components/ReviewCard"
 import ReviewFormCard from "../components/ReviewFormCard"
 import { useLoading } from "../context/GlobalProvider";
+import ListReviews from "../components/ListReviews"
+import LoadingSingleSection from "../components/LoadingSingleSection"
 
 
 export default function SingleMovie() {
@@ -33,18 +35,11 @@ export default function SingleMovie() {
             .finally(() => {
                 setIsLoading(false);
             })
-    }, [setIsLoading, success])
+    }, [])
 
     if (!movie) {
         return (
-            <section className="container my-3">
-                <div className="loading-overlay">
-                    <div className="spinner-border text-success" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
-                    <p>Loading ...</p>
-                </div>
-            </section>
+            <LoadingSingleSection />
         )
     }
 
@@ -59,21 +54,7 @@ export default function SingleMovie() {
 
             <ReviewFormCard movie_id={id} setSuccess={setSuccess} success={success} />
 
-            <section className="container my-3">
-                {/* Verifica se ci sono recensioni */}
-                {
-                    movie.reviews && movie.reviews.length > 0 ? (
-                        movie.reviews.map((review) => (
-                            <ReviewCard key={review.id} review={review} />
-                        ))
-                    ) : (
-                        <p>No reviews available.</p>
-                    )
-                }
-
-                <Link to="/" className="btn btn-success btn-sm"> <i className="bi bi-arrow-left"></i> Back to Movies</Link>
-            </section>
-
+            <ListReviews movie={movie} />
 
         </>
     )

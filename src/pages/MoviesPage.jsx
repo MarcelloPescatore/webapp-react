@@ -33,7 +33,7 @@ export default function MoviesPage() {
             .finally(() => {
                 setIsLoading(false);
             })
-    }, [setIsLoading])
+    }, [])
 
 
     return (
