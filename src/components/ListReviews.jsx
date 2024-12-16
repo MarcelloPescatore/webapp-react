@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
-import ReviewCard from "../components/ReviewCard"
+import ReviewCard from './ReviewCard'
+import LoadingSingleSection from "./LoadingSingleSection"
 
 
 export default function ListReviews({movie}) {
@@ -13,7 +14,7 @@ export default function ListReviews({movie}) {
                             <ReviewCard key={review.id} review={review} />
                         ))
                     ) : (
-                        <p>No reviews available.</p>
+                        <LoadingSingleSection />
                     )
                 }
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Banner from "../components/Banner";
 import MovieCard from "../components/MovieCard"
 import { useLoading } from "../context/GlobalProvider";
+import LoadingSingleSection from "../components/LoadingSingleSection";
 
 export default function MoviesPage() {
     const [movies, setMovies] = useState([])
@@ -56,12 +57,7 @@ export default function MoviesPage() {
                                     </div>
                                 ))
                             ) : (
-                                <div className="d-flex">
-                                    <div className="spinner-border text-success me-3" role="status">
-                                        <span className="visually-hidden">Loading...</span>
-                                    </div>
-                                    <p>Loading ...</p>
-                                </div>
+                                <LoadingSingleSection />
                             )
                         }
                     </div>

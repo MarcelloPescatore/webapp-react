@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import ReviewFormCard from "../components/ReviewFormCard"
 import { useLoading } from "../context/GlobalProvider";
 import ListReviews from "../components/ListReviews"
-import LoadingSingleSection from "../components/LoadingSingleSection"
 
 
 export default function SingleMovie() {
@@ -36,11 +35,6 @@ export default function SingleMovie() {
             })
     }, [])
 
-    if (!movie) {
-        return (
-            <LoadingSingleSection />
-        )
-    }
 
     return (
         <>
