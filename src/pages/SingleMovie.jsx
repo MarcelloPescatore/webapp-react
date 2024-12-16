@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import Banner from '../components/Banner'
 import { useState, useEffect } from "react"
-import ReviewFormCard from "../components/ReviewFormCard"
+import ReviewFormCard from "../components/card/ReviewFormCard"
 import { useLoading } from "../context/GlobalProvider";
 import ListReviews from "../components/list_data/ListReviews"
 
