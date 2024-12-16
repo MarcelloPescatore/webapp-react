@@ -3,7 +3,7 @@ import Banner from '../components/Banner'
 import { useState, useEffect } from "react"
 import ReviewFormCard from "../components/ReviewFormCard"
 import { useLoading } from "../context/GlobalProvider";
-import ListReviews from "../components/ListReviews"
+import ListReviews from "../components/list_data/ListReviews"
 
 
 export default function SingleMovie() {

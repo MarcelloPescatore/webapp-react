@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import ReviewCard from './ReviewCard'
-import LoadingSingleSection from "./LoadingSingleSection"
+import ReviewCard from '../card/ReviewCard'
+import LoadingSingleSection from "../loaders/LoadingSingleSection"
 
 
 export default function ListReviews({movie}) {

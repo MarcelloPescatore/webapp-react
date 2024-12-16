@@ -4,7 +4,7 @@ import MoviesPage from './pages/MoviesPage'
 import SingleMovie from './pages/SingleMovie'
 import NotFound from './components/NotFound'
 import { GlobalProvider } from './context/GlobalProvider'
-import LoadingOverlay from './components/LoadingOverlay'
+import LoadingOverlay from './components/loaders/LoadingOverlay'
 
 
 

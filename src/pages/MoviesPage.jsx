@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Banner from "../components/Banner";
-import MovieCard from "../components/MovieCard"
 import { useLoading } from "../context/GlobalProvider";
-import LoadingSingleSection from "../components/LoadingSingleSection";
+import ListMovies from '../components/list_data/ListMovies'
+
 
 export default function MoviesPage() {
     const [movies, setMovies] = useState([])
@@ -46,24 +46,7 @@ export default function MoviesPage() {
                 leadtext="Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi recusandae adipisci voluptatem cumque itaque, illo labore delectus expedita quam, ad quidem rem ab impedit eum, ex quia quisquam facilis quis!"
             />
 
-            <section className="my-5">
-                <div className="container">
-                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-                        {
-                            movies && movies.length > 0 ? (
-                                movies.map(movie => (
-                                    <div className="col" key={movie.id}>
-                                        <MovieCard movie={movie} />
-                                    </div>
-                                ))
-                            ) : (
-                                <LoadingSingleSection />
-                            )
-                        }
-                    </div>
-                </div>
-            </section>
-
+            <ListMovies movies={movies} />
 
         </>
     )

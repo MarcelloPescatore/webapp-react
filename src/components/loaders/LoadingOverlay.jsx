@@ -1,4 +1,4 @@
-import { useLoading } from "../context/GlobalProvider";
+import { useLoading } from "../../context/GlobalProvider";
 
 export default function LoadingOverlay() {
     const { isLoading } = useLoading();
